@@ -9,10 +9,16 @@ class DigitalBankDashboard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Digital Bank Dashboard'),
+        title: Text('Nagad Digital Bank Dashboard'),
+        leading: IconButton(
+          icon: Icon(FontAwesomeIcons.arrowLeft),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.switch_account),
+            icon: Icon(FontAwesomeIcons.exchangeAlt),
             onPressed: () {
               Navigator.push(
                 context,
@@ -27,7 +33,7 @@ class DigitalBankDashboard extends StatelessWidget {
         padding: EdgeInsets.all(16.0),
         children: <Widget>[
           _buildDashboardItem(context, 'Create Account', FontAwesomeIcons.user, () => _createAccount(context)),
-          _buildDashboardItem(context, 'Transfer Money', FontAwesomeIcons.moneyBillTransfer, () => _transferMoney(context)),
+          _buildDashboardItem(context, 'Transfer Money', FontAwesomeIcons.moneyBillWave, () => _transferMoney(context)),
           _buildDashboardItem(context, 'Check Balance', FontAwesomeIcons.wallet, () => _checkBalance(context)),
         ],
       ),
@@ -54,9 +60,9 @@ class DigitalBankDashboard extends StatelessWidget {
 
   void _createAccount(BuildContext context) {
     AccountManagement accountManagement = AccountManagement();
-    accountManagement.createAccount('John Doe', 'john@example.com');
+    accountManagement.createAccount('Nazmul Nazim', 'nazmul.nazim@nagad.com.bd');
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Account created for John Doe')),
+      SnackBar(content: Text('Account created for Nazmul Nazim')),
     );
   }
 
